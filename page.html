@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Skapa dynamiska input</title>
+</head>
+<body>
+
+
+
+
+<form action="page.html" method="get" name="form">
+  <h1> Beskrivning </h1>
+<textarea class="form-control" placeholder="Comments here.." id="floatingTextarea"></textarea>
+ <p id="dynamicItems"></p>
+
+  <h1>  Varor </h1>
+<div id="button" class="btn my-2 bg-warning"> Skapa + </div>
+<br><br>
+<input type="submit" value="Skicka">
+</form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+<script>
+
+/*
+Diypa571
+Generating html element
+*/
+
+
+// Creating dynamic input fields
+// Creating a reference --> Button
+var buttnEl = document.getElementById("button");
+// Adding an addEventListener to the Button
+buttnEl.addEventListener('click',createDynamicFields) ;
+// Let this counter to be the unique value for the elements that will be generated
+let counterID = 0;
+function createDynamicFields() {
+++counterID; // Increase the value
+
+// The elements that will generated...
+var item = document.createElement("input");
+item.setAttribute("type", "text");
+item.setAttribute("name", `${"item"+counterID}`);
+item.setAttribute("placeholder", "Item");
+item.setAttribute("class", "form-control");
+
+var price = document.createElement("input");
+price.setAttribute("type", "price");
+price.setAttribute("name", `${"price"+counterID}`);
+price.setAttribute("placeholder", "Price");
+price.setAttribute("class", "form-control");
+
+
+var hr = document.createElement("hr");
+
+dynamicItems.append(item);
+dynamicItems.append(price);
+dynamicItems.append(hr);
+
+}
+</script>
+</body>
+</html>
